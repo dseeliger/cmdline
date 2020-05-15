@@ -22,5 +22,5 @@ help_text = ['does a lot of useful stuff',
 cmdl = Commandline( sys.argv, options = options, fileoptions = files, program_desc = help_text, check_for_existing_files = False, verbose = True)
 
 
-print cmdl['-i']
-print cmdl['-excel']
+print(cmdl['-i'])
+print(cmdl['-excel'])

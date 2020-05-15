@@ -313,10 +313,10 @@ class Commandline:
         self.__make_option_dic()
         if self.opt['-h'].value == True:
             self.__print_program_descr()
-            print self
+            print(self)
             sys.exit(0)
         if verbose:
-            print self
+            print(self)
         if self.opt['-h'].value == True:
             sys.exit(0)
         self.__check_for_unparsed_args()            
@@ -325,12 +325,12 @@ class Commandline:
         
 
     def __print_program_descr(self):
-        print
-        print 'HELP TEXT for "%s"' %  (self.prog_name)
-        print '---------------------------------------------------------------------------------------------------------\n'
+        print()
+        print('HELP TEXT for "%s"' %  (self.prog_name))
+        print('---------------------------------------------------------------------------------------------------------\n')
 
         for line in self.program_desc:
-            print line.rstrip()
+            print(line.rstrip())
 
     def __make_option_dic(self ):
         for opt in self.options+self.fileoptions:
@@ -415,7 +415,7 @@ class Commandline:
                 for f in o.filenames:
                     if not os.path.isfile(f):
                         missing.append(f)
-                        print >>sys.stderr, "Error: File \"%s\" does not exist!" % f
+                        print("Error: File \"%s\" does not exist!" % f, file=sys.stderr)
                         error_occured = True
         if error_occured:
             raise CmdlineError("Missing File(s): %s" % (','.join(missing)))
@@ -445,7 +445,7 @@ if __name__=='__main__':
     cmdl = Commandline( sys.argv, options = options, fileoptions = files, program_desc = help_text, check_for_existing_files = False )
     
     
-    print cmdl['-i']
-    print cmdl['-excel']
+    print(cmdl['-i'])
+    print(cmdl['-excel'])
 
 
